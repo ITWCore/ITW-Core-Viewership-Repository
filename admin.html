@@ -209,11 +209,11 @@ h1,h2,h3{font-family:'Prompt',sans-serif}
       <div class="form-row">
         <div class="form-group">
           <label>Repository Owner</label>
-          <input type="text" id="ghOwner" value="hemanth14-collab" placeholder="e.g. hemanth14-collab">
+          <input type="text" id="ghOwner" value="ITWCore" placeholder="e.g. ITWCore">
         </div>
         <div class="form-group">
           <label>Repository Name</label>
-          <input type="text" id="ghRepo" value="itw-viewership-dashboard" placeholder="e.g. itw-viewership-dashboard">
+          <input type="text" id="ghRepo" value="ITW-Core-Viewership-Repository" placeholder="e.g. ITW-Core-Viewership-Repository">
         </div>
       </div>
       <div class="form-row full">
@@ -252,7 +252,7 @@ h1,h2,h3{font-family:'Prompt',sans-serif}
   // ── Encrypted token + GitHub API helpers ──
   // The GitHub PAT is encrypted with the admin password and stored in the repo
   // as gh.enc.json. After the password gate, the blob is decrypted in memory.
-  const REPO_DEFAULTS = { owner: 'hemanth14-collab', repo: 'itw-viewership-dashboard', branch: 'main' };
+  const REPO_DEFAULTS = { owner: 'ITWCore', repo: 'ITW-Core-Viewership-Repository', branch: 'main' };
   const REPO_KEY = 'itw_repo_config';
   const ENC_FILE = 'gh.enc.json';
 
