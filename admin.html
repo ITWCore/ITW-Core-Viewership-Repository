@@ -253,12 +253,24 @@ h1,h2,h3{font-family:'Prompt',sans-serif}
   // The GitHub PAT is encrypted with the admin password and stored in the repo
   // as gh.enc.json. After the password gate, the blob is decrypted in memory.
   const REPO_DEFAULTS = { owner: 'ITWCore', repo: 'ITW-Core-Viewership-Repository', branch: 'main' };
-  const REPO_KEY = 'itw_repo_config';
+  // Key bumped when the dashboard moved to ITWCore, so settings saved in the
+  // browser for the old hemanth14-collab repo are no longer picked up.
+  const REPO_KEY = 'itw_repo_config_itwcore';
   const ENC_FILE = 'gh.enc.json';
 
   let TOKEN_BLOB = null;          // encrypted blob {v,salt,iv,data}
   let DECRYPTED_TOKEN = null;     // plaintext PAT, lives only in memory
-  let REPO_CFG = (() => { try { return { ...REPO_DEFAULTS, ...JSON.parse(localStorage.getItem(REPO_KEY) || '{}') }; } catch(e) { return { ...REPO_DEFAULTS }; } })();
+  let REPO_CFG = (() => {
+    try {
+      localStorage.removeItem('itw_repo_config');
+      const saved = JSON.parse(localStorage.getItem(REPO_KEY) || '{}');
+      if (/hemanth14-collab/i.test(saved.owner || '') || /itw-viewership-dashboard/i.test(saved.repo || '')) {
+        localStorage.removeItem(REPO_KEY);
+        return { ...REPO_DEFAULTS };
+      }
+      return { ...REPO_DEFAULTS, ...saved };
+    } catch(e) { return { ...REPO_DEFAULTS }; }
+  })();
 
   // ── Crypto helpers (Web Crypto API) ──
   function b64encode(bytes) { let s = ''; for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s); }
