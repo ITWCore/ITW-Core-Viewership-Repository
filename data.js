@@ -156,6 +156,21 @@ const EVENT_DATA = {
     age: { "<15": 0.21, "15-21": 0.13, "22-40": 0.34, "41-50": 0.14, "50+": 0.18 }
   },
 
+  "ICC Women's T20 World Cup 2026": {
+    ltvBroadcaster: "Star Sports",
+    digitalBroadcaster: "JioHotstar",
+    dataSource: "BARC, OTT Estimates based on JioHotstar",
+    cumulativeViewership: 407.4,
+    reach: 135.8,
+    avgTVR: null,
+    ltvReach: null,
+    ottReach: 135.8,
+    gender: null,
+    urbanRural: null,
+    nccs: null,
+    age: null
+  },
+
   "IPL-2025": {
     ltvBroadcaster: "Star Sports",
     digitalBroadcaster: "JioHotstar",
