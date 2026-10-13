@@ -359,7 +359,10 @@ h1,h2,h3{font-family:'Prompt',sans-serif}
     }, tokenOverride);
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      const msg = err.message || ('GitHub API error: ' + res.status);
+      let msg = err.message || ('GitHub API error: ' + res.status);
+      if (res.status === 404 || res.status === 403) {
+        msg = 'The saved GitHub token cannot write to ' + c.owner + '/' + c.repo + '. Owner: re-run the one-time setup in Settings with a token from an account that has write access to this repo';
+      }
       const isShaConflict = res.status === 409 || /does not match/i.test(msg);
       if (isShaConflict && _retryCount < 2) {
         // Wait for GitHub to settle, then retry with a fresh SHA
