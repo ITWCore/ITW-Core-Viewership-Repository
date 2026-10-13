@@ -390,7 +390,7 @@ const EVENT_DATA = {
     avgTVR: 0.01,
     ltvReach: 0.87,
     ottReach: 1,
-    gender: { male: -1, female: null },
+    gender: { male: 0.65, female: 0.35 },
     urbanRural: null,
     nccs: null,
     age: null
