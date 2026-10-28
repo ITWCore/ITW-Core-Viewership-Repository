@@ -590,10 +590,10 @@
     "ltvBroadcaster": "Star Sports",
     "digitalBroadcaster": "JioHotstar",
     "dataSource": "BARC, OTT Estimates based on JioHotstar",
-    "cumulativeViewership": 1304,
-    "reach": 480,
+    "cumulativeViewership": 1304.74,
+    "reach": 380.5,
     "avgTVR": 3.07,
-    "ltvReach": 140,
+    "ltvReach": 140.5,
     "ottReach": 240,
     "gender": {
       "male": 0.55,
@@ -613,7 +613,7 @@
       "15-21": 0.13,
       "22-40": 0.34,
       "41-50": 0.14,
-      "50+": 0.17
+      "50+": 0.16
     }
   },
   "Ind v NZ 2026 (ODIs) Men": {
